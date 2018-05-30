@@ -16,7 +16,7 @@ public class ObjectToXml {
 		try {
 			JAXBContext jaxbContext=JAXBContext.newInstance(Employee.class);
 			Marshaller marshaller=jaxbContext.createMarshaller();
-			OutputStream outputStream=new FileOutputStream(new File("C:\\IDE\\problem-statement\\employee.xml"));
+			OutputStream outputStream=new FileOutputStream(new File("employee.xml"));
 			marshaller.marshal(employee, outputStream);
 		} catch (JAXBException | FileNotFoundException e) {
 			e.printStackTrace();

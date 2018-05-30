@@ -15,29 +15,20 @@ import com.accolite.util.FileConvertor;
 import com.accolite.util.ObjectToXml;
 
 public class FileToXml {
+	private Converter converter ;
+	
+	public void setConverter(Converter converter) {
+		this.converter = converter;
+	}
 
-	public static void main(String[] args) {
-		List<String> fileList = new ArrayList<String>();
-		fileList.add("employee1.ser");
-		fileList.add("employee2.ser");
-		fileList.add("employee3.ser");
-		fileList.add("employee4.ser");
-		fileList.add("employee3.ser");
-		fileList.add("employee5.ser");
-		Converter converter = new FileConvertor();
-		/*
-		 * try {
-		 * 
-		 * Employee employee=new Employee("E5", "Basant", "SSE", "Bangalore");
-		 * ObjectOutputStream outputStream=new ObjectOutputStream(new
-		 * FileOutputStream(new File("./employee5.ser")));
-		 * outputStream.writeObject(employee); } catch (Exception e) { }
-		 */
+	public  int convertToXml(List<String> fileList) {
+		int numberOfFileProcessed=0;
 		for (String file : fileList) {
 			try {
 				Employee employee = converter.readAndConvert(file);
 				ObjectToXml objectToXml = new ObjectToXml();
 				objectToXml.convertToXml(employee);
+				++numberOfFileProcessed;
 			} catch (Error e) {
 				if (e.getErroeCode() == 1001) {
 					System.out.println(e.getErrorMessage());
@@ -47,6 +38,7 @@ public class FileToXml {
 				}
 			}
 		}
+		return numberOfFileProcessed;
 	}
 
 }

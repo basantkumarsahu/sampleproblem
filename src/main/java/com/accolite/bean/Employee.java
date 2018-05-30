@@ -9,7 +9,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 @XmlType
 @XmlRootElement(name="employee")
+//the xml tagname should be taken as fild name
 @XmlAccessorType(XmlAccessType.FIELD)
+//craeted calss as jaxb-binding class
 public class Employee implements Serializable{
 
 	public Employee(String empId, String empName, String desg, String location) {

@@ -58,6 +58,7 @@ public class FileToXmlTest {
 		int max=6;
 		for(int i=1;i<max;i++) {
 			fileList.add("./employee"+i+".ser");
+			fileList.add("./employee"+i+".ser");
 		}
 		int expectedCount=max-1;
 		int actualCount=fileToXml.convertToXml(fileList);

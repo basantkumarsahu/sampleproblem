@@ -18,6 +18,7 @@ public class ObjectToXml {
 			Marshaller marshaller=jaxbContext.createMarshaller();
 			OutputStream outputStream=new FileOutputStream(new File("employee.xml"));
 			marshaller.marshal(employee, outputStream);
+			System.out.println("Xml File Created in current path");
 		} catch (JAXBException | FileNotFoundException e) {
 			e.printStackTrace();
 		}
